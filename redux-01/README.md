@@ -1,5 +1,5 @@
 
-该README.md文档，是对 [初识redux](https://suifengfengye.github.io/2018/11/28/My-New-Post/) 文章的补充。
+该README.md文档，是对 [初识redux](https://suifengfengye.github.io/2018/12/01/%E5%88%9D%E8%AF%86redux/) 文章的补充。
 
 # 1、创建npm工程
 
