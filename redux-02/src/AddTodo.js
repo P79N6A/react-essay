@@ -1,15 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-
-class AddTodo extends Component {
- render() {
-  return (
-   <div>
-       <input type="text" />
-       <button type="button">Add</button>
-   </div>
-  )
- }
+const AddTodo = () => {
+    return (
+        <div>
+            <input type="text" />
+            <button type="button">Add</button>
+        </div>
+    )
 }
 
 export default AddTodo
