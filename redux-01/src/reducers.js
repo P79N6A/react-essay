@@ -15,6 +15,7 @@ function visibilityFilter(state = 'SHOW_ALL', action) {
           // 添加待办事项
           case 'ADD_TODO':
               return [...state, {
+                    id: Date.now(),
                   text: action.text,
                   completed: false,
               }]
