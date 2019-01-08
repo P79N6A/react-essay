@@ -38,9 +38,20 @@ function todos(state = [], action) {
     }
 }
 
+function loading (state=false, action) {
+    switch(action.type) {
+        case 'SET_LOADING':
+            return !!action.loading
+        break
+        default:
+            return state
+    }
+}
+
 const rootReducer = combineReducers({
     visibilityFilter,
-    todos
+    todos,
+    loading,
 })
 
 export default rootReducer

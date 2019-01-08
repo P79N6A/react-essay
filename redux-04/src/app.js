@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 import AddTodo from './AddTodo'
 import TodoList from './TodoList'
 import Footer from './Footer'
-import { toggleTodo, initTodos } from './actions'
-import { getTodos } from './services/app'
+import { toggleTodo, initTodos, dispatchInitTodos } from './actions'
+// import { getTodos } from './services.js'
 
 class App extends Component {
 
@@ -16,12 +16,12 @@ class App extends Component {
 
     componentDidMount () {
         const { dispatch } = this.props
-        getTodos().then((data) => {
-            // console.log('@@@success', data)
-            dispatch(initTodos(data.list))
-        }, (err) => {
-            console.log('@@@fail', err)
-        })
+        dispatchInitTodos(dispatch)
+        // getTodos().then((data) => {
+        //     dispatch(initTodos(data.list))
+        // }, (err) => {
+        //     console.log('@@@fail', err)
+        // })
     }
 
     onTodoClick (index) {
@@ -30,10 +30,11 @@ class App extends Component {
     }
 
     render() {
-        const { todos } = this.props
+        const { todos, loading } = this.props
         return (
             <div>
                 <AddTodo />
+                {loading && 'loading....'}
                 <TodoList todos={todos} onTodoClick={this.onTodoClick}/>
                 <Footer />
             </div>
@@ -53,6 +54,7 @@ const mapStateToProps = (state) => {
                 return true
             }
         }),
+        loading: state.loading,
     }
 }
 
