@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import AddTodo from './AddTodo'
 import TodoList from './TodoList'
 import Footer from './Footer'
-import { toggleTodo, initTodos, dispatchInitTodos } from './actions'
+import { toggleTodo, initTodos, dispatchInitTodos, dispatchInitTodosPromise } from './actions'
 // import { getTodos } from './services.js'
 
 class App extends Component {
@@ -16,7 +16,8 @@ class App extends Component {
 
     componentDidMount () {
         const { dispatch } = this.props
-        dispatch(dispatchInitTodos())
+        // dispatch(dispatchInitTodos())
+        dispatch(dispatchInitTodosPromise())
     }
 
     onTodoClick (index) {

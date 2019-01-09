@@ -29,21 +29,20 @@ export function initTodos(list) {
 }
 
 export function dispatchInitTodos() {
-  // return (dispatch) => {
-  //   dispatch(setLoading(true))
-  //   getTodos().then((data) => {
-  //     dispatch(initTodos(data.list))
-  //     dispatch(setLoading(false))
-  //   }, (err) => {
-  //     console.log('@@@fail', err)
-  //     dispatch(setLoading(false))
-  //   })
-  // }
-  return getTodos().then((data) => {
-        dispatch(initTodos(data.list))
-        dispatch(setLoading(false))
-      }, (err) => {
-        console.log('@@@fail', err)
-        dispatch(setLoading(false))
-      })
+  return (dispatch) => {
+    dispatch(setLoading(true))
+    getTodos().then((data) => {
+      dispatch(initTodos(data.list))
+      dispatch(setLoading(false))
+    }, (err) => {
+      console.log('@@@fail', err)
+      dispatch(setLoading(false))
+    })
+  }
+}
+
+export function dispatchInitTodosPromise(){
+  return  getTodos().then((data) => {
+    return initTodos(data.list)
+  })
 }
