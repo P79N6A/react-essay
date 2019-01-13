@@ -39,7 +39,7 @@ const rootState = {
             })
         },
         initTodos (state, {list}) {
-            state.todos.splice(state.todos.length - 1, 0, ...list)
+            state.todos.push(...list)
         }
     },
     actions: {
