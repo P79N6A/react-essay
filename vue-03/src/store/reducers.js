@@ -1,7 +1,12 @@
 // reducers.js
 import { combineReducers } from 'redux'
+
+export const SHOW_ALL = 'SHOW_ALL'
+export const SHOW_ACTIVE = 'SHOW_ACTIVE'
+export const SHOW_COMPLETED = 'SHOW_COMPLETED'
+
 // 待办事项的过滤条件
-function visibilityFilter(state = 'SHOW_ALL', action) {
+function visibilityFilter(state = SHOW_ALL, action) {
     switch (action.type) {
         case 'SET_VISIBILITY_FILTER':
             return action.filter

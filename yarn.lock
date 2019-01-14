@@ -315,6 +315,11 @@ readable-stream@1.0:
     isarray "0.0.1"
     string_decoder "~0.10.x"
 
+redux-thunk@^2.3.0:
+  version "2.3.0"
+  resolved "http://r.tnpm.oa.com/redux-thunk/download/redux-thunk-2.3.0.tgz#51c2c19a185ed5187aaa9a2d08b666d0d6467622"
+  integrity sha1-UcLBmhhe1Rh6qpotCLZm0NZGdiI=
+
 relateurl@0.2.x:
   version "0.2.7"
   resolved "http://r.tnpm.oa.com/relateurl/download/relateurl-0.2.7.tgz#54dbf377e51440aca90a4cd274600d3ff2d888a9"

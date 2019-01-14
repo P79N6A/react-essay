@@ -22,7 +22,7 @@ export default {
  },
  methods: {
      handleClick () {
-         this.dispatch(setVisibilityFilter(this.linkItem.value))
+         this.$store.dispatch(setVisibilityFilter(this.linkItem.value))
      }
  }
 }

@@ -16,7 +16,6 @@ export default {
  },
  data () {
   return  {
-      visibilityFilter: '',
       links: [{
           text: 'ALL',
           value: 'SHOW_ALL',
@@ -30,12 +29,13 @@ export default {
       }]
   };
  },
- methods: {
-     mapReduxState (state) {
-         return {
-             visibilityFilter: state.visibilityFilter,
-         }
+ computed: {
+     visibilityFilter () {
+         const state = this.$store.state
+         return state.visibilityFilter
      }
+ },
+ methods: {
  }
 }
 </script>
