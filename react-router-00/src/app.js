@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link, Route } from 'react-router-dom'
 import TodoList from './TodoList'
 import AddTodo from './AddTodo'
 
@@ -18,12 +17,8 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Route exact path="/" render={() => {
-                    return (<TodoList todos={data} />)
-                }}/>
-                <Route path="/addTodo" render={() => {
-                    return (<AddTodo />)
-                }}/>
+                <AddTodo />
+                <TodoList todos={data} />
             </div>
         )
     }
