@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import AceEditor from 'react-ace'
 
+
 let editorRef = null
 
-class App extends Component {
-
+class AceEditorBox extends Component {
     handleChange = () => {
         this.update()
     }
@@ -49,4 +49,4 @@ class App extends Component {
     }
 }
 
-export default App
+export default AceEditorBox

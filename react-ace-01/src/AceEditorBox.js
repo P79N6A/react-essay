@@ -1,11 +1,21 @@
 import React, { Component } from 'react';
-import AceEditor from 'react-ace'
+
+import brace from "brace"
+import AceEditor from "react-ace"
+
+import "brace/mode/sql"
+import "brace/theme/github"
+
 
 let editorRef = null
 
-class App extends Component {
+const config = {
+    name: 'createSQL'
+}
 
-    handleChange = () => {
+class AceEditorBox extends Component {
+    handleChange = (content) => {
+        this.props.updateContent(content)
         this.update()
     }
 
@@ -32,21 +42,38 @@ class App extends Component {
     }
 
     render() {
+        const { content } = this.props
         return (
             <div>
                 <AceEditor
-                    onChange={this.handleChange}
                     ref={(r) => {
                         editorRef = r
                         setTimeout(() => {
                             this.update()
                         })
                     }}
-                    placeholder="placeholder ace editor"
+                    mode="sql"
+                    theme="github"
+                    width="100%"
+                    height="300px"
+                    onChange={this.handleChange}
+                    onBlur={this.handleBlur}
+                    showPrintMargin={false}
+                    name={`ace-editor-${config.name}-name`}
+                    editorProps={{ $blockScrolling: true }}
+                    value={content}
+                    defaultValue=""
+                    key={`ace-editor-${config.name}`}
+                    fontSize={16}
+                    style={{
+                        background: '#F8F8F8',
+                        border: '1px solid #D8D8D8',
+                        borderRadius: '2px',
+                    }}
                 />
             </div>
         )
     }
 }
 
-export default App
+export default AceEditorBox
